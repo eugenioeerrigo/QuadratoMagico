@@ -22,15 +22,15 @@ public class Quadrato {
 	}
 	
 	private boolean checkRows() {
-		
+		return false;
 	}
 	
 	private boolean checkColumns() {
-		
+		return false;
 	}
 	
 	private boolean checkDiagonals() {
-		
+		return false;
 	}
 	
 	public boolean isValid() {
@@ -47,6 +47,12 @@ public class Quadrato {
 	}
 	
 	public void remove(int i) {
-		this.matrice.remove(Integer.valueOf(i));
+		this.matrice.remove(Integer.valueOf(i));         //remove(index) / remove(Object)
 	}
+
+	public List<Integer> getMatrice() {
+		return matrice;
+	}
+	
+	
 }
