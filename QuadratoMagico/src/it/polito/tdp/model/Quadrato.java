@@ -21,23 +21,75 @@ public class Quadrato {
 		this.matrice = new ArrayList<Integer>(q.getMatrice());
 	}
 	
-	private boolean checkRows() {
-		return false;
-	}
-	
-	private boolean checkColumns() {
-		return false;
-	}
-	
-	private boolean checkDiagonals() {
-		return false;
-	}
-	
 	public boolean isValid() {
 		// quadrato e' una soluzione valida
 		return checkRows() & checkColumns() & checkDiagonals();
 	}
 	
+	private boolean checkRows() {
+		for(int i=0; i<n; i++) {
+			int somma = 0;
+			for(int j=0; j<n; j++) {
+				somma += matrice.get(i*n+j);
+			}
+			if(somma != magic)
+				return false;
+		}
+		return true;
+	}
+	
+	private boolean checkColumns() {
+		for(int j=0; j<n; j++) {
+			int somma = 0;
+			for(int i=0; i<n; i++) {
+				somma += matrice.get(i*n+j);
+			}
+			if(somma != magic)
+				return false;
+		}
+		return true;
+	}
+	
+	private boolean checkDiagonals() {
+		return checkMainDiagonal() & checkSecondaryDiagonal();
+	}
+	
+	private boolean checkMainDiagonal() {
+		int somma=0;
+		for(int i=0; i<n; i++) {
+			somma += this.matrice.get(i*n+i);
+		}
+		if(somma!=magic)
+			return false;
+		return true;
+	}
+
+	private boolean checkSecondaryDiagonal() {
+		int somma=0;
+		for(int i=0; i<n; i++) {
+			somma += this.matrice.get(i*n+n-1-i);
+		}
+		if(somma!=magic)
+			return false;
+		return true;
+	}
+	
+	
+	
+	
+
+	public int getN() {
+		return n;
+	}
+
+	public void setN(int n) {
+		this.n = n;
+	}
+
+	public void setMatrice(List<Integer> matrice) {
+		this.matrice = matrice;
+	}
+
 	public boolean contains(int i) {
 		return this.matrice.contains(i);
 	}
@@ -53,6 +105,12 @@ public class Quadrato {
 	public List<Integer> getMatrice() {
 		return matrice;
 	}
+
+	@Override
+	public String toString() {
+		return this.matrice.toString();
+	}
+	
 	
 	
 }

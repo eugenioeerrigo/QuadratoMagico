@@ -21,7 +21,8 @@ public class Model {
 
 	private void recursive(int step, Quadrato parziale, int dim) {
 		
-		System.out.println(parziale);
+		//Debug
+		//System.out.println(parziale);
 		
 		if (step >= dim*dim) {
 			// soluzione completa
